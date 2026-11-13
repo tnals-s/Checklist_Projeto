@@ -27,8 +27,11 @@ src/
 
 ## Tecnologias Utilizadas
 Linguagem: Java
+
 Interface Gráfica: Java Swing (javax.swing)
+
 IDE: IntelliJ IDEA
+
 Versionamento: Git & GitHub
 
 ## Como executar
