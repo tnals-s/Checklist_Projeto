@@ -22,7 +22,7 @@ src/
 ├── fila/         # Estrutura de Fila (FIFO) e painel de foco diário
 ├── lista/        # Estrutura de Lista e tela de cadastro/listagem geral
 ├── pilha/        # Estrutura de Pilha (LIFO) e painel de histórico/Undo
-└── main/         # Classe principal (Main.java) e integração da interface Swing
+└── main/         # Classe principal (MenuPrincipal.java) e integração da interface Swing
 ```
 
 ## Tecnologias Utilizadas
