@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist | Organize sua rotina</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">✓</span>
+            <h2>Checklist<span>.</span></h2>
+        </div>
+
+        <p class="menu-title">MENU PRINCIPAL</p>
+
+        <nav>
+            <a href="#" class="menu-item active" data-page="inicio">
+                <span>▦</span> Visão geral
+            </a>
+            <a href="#" class="menu-item" data-page="pendentes">
+                <span>◷</span> Minhas tarefas
+            </a>
+            <a href="#" class="menu-item" data-page="concluidas">
+                <span>✓</span> Concluídas
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">U</div>
+                <div>
+                    <strong>Meu espaço</strong>
+                    <small>Organize seu dia</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="date-label" id="dataAtual"></p>
+                <h1>Visão geral</h1>
+                <p class="subtitle">Organize suas tarefas e acompanhe seu progresso.</p>
+            </div>
+            <div class="top-tag">✦ Minha produtividade</div>
+        </header>
+
+        <section class="summary">
+            <div class="summary-card">
+                <div class="card-icon purple">▦</div>
+                <p>Total de tarefas</p>
+                <h2 id="totalTarefas">0</h2>
+                <small>Tarefas cadastradas</small>
+            </div>
+
+            <div class="summary-card">
+                <div class="card-icon orange">◷</div>
+                <p>Pendentes</p>
+                <h2 id="totalPendentes">0</h2>
+                <small>Aguardando conclusão</small>
+            </div>
+
+            <div class="summary-card">
+                <div class="card-icon green">✓</div>
+                <p>Concluídas</p>
+                <h2 id="totalConcluidas">0</h2>
+                <small>Tarefas finalizadas</small>
+            </div>
+        </section>
+
+        <section class="progress-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Meu progresso</h2>
+                    <p>Acompanhe seu desempenho.</p>
+                </div>
+                <strong id="porcentagem">0%</strong>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="barraProgresso"></div>
+            </div>
+        </section>
+        \*PAINEL PRINCIPAL*\
+            <div clss="dashboard-grid">
+            <!-- LADO ESQUERDA -->
+             <div class="dashboard-left">
+                <section class="tasks-section">
+            <!-- Formulario -->
+            <!-- Filtros -->
+            <!-- Lista de tarefas -->
+        </section>
+    </div>
+    <!-- LADO DIREITO -->
+    <section class="calendar-section" id="calendario">
+        <!-- Todo o codigo do calendario -->
+    </section>
+
+
+                <div class="dashboard-card">
+                    <h3>Resumo diário</h3>
+                    <p>Visualize suas tarefas do dia.</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Resumo semanal</h3>
+                    <p>Acompanhe seu progresso semanal.</p>
+                </div>
+                <div class="dashboard-card">
+                    <h3>Resumo mensal</h3>
+                    <p>Analise seu desempenho mensal.</p>
+                </div>
+        <section class="tasks-section">
+ <!-- FORMULARIO, FILTROS E LISTA -->
+             </section>
+    </div>
+    <section class="calendar-section" id="calendario">
+
+    <div class="section-heading">
+        <div>
+            <h2>Calendário</h2>
+            <p>Seus compromissos e lembretes.</p>
+        </div>
+    </div>
+
+    <div class="calendar-header">
+        <button id="mesAnterior">❮</button>
+        <h3 id="mesAno"></h3>
+        <button id="proximoMes">❯</button>
+    </div>
+
+    <div class="calendar-weekdays">
+        <span>Dom</span>
+        <span>Seg</span>
+        <span>Ter</span>
+        <span>Qua</span>
+        <span>Qui</span>
+        <span>Sex</span>
+        <span>Sáb</span>
+    </div>
+
+    <div class="calendar-grid" id="diasCalendario"></div>
+
+    <div class="selected-date">
+        <h3 id="dataSelecionada">Selecione uma data</h3>
+        <div id="tarefasDoDia"></div>
+    </div>
+
+</section>
+        </div>
+        <section class="tasks-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Minhas tarefas</h2>
+                    <p>Gerencie suas atividades.</p>
+                </div>
+            </div>
+
+            <form id="formTarefa" class="task-form">
+                <input
+                    type="text"
+                    id="descricaoTarefa"
+                    placeholder="Digite uma nova tarefa..."
+                    maxlength="99"
+                    required
+                >
+                <button type="submit">+ Adicionar tarefa</button>
+            </form>
+
+            <div class="task-tabs">
+                <button class="tab active" data-filter="todas">Todas</button>
+                <button class="tab" data-filter="pendentes">Pendentes</button>
+                <button class="tab" data-filter="concluidas">Concluídas</button>
+            </div>
+
+            <div id="listaTarefas" class="task-list">
+                <div class="empty-state">
+                    <span>✦</span>
+                    <h3>Nenhuma tarefa cadastrada</h3>
+                    <p>Adicione sua primeira tarefa para começar.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            Checklist. | Organize suas tarefas, conquiste seus objetivos.
+        </footer>
+
+    </main>
+
+    <script src="list.js"></script>
+</body>
+</html>
