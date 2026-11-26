@@ -18,11 +18,10 @@ O **TaskFlow** é um sistema de checklist e gerenciamento de tarefas projetado p
 O código-fonte está organizado dentro de `src/` separando cada módulo por responsabilidade para facilitar o desenvolvimento colaborativo:
 ```text
 src/
-├── algoritmos/   # Implementação de busca e ordenação por prioridade/prazo
-├── fila/         # Estrutura de Fila (FIFO) e painel de foco diário
-├── lista/        # Estrutura de Lista e tela de cadastro/listagem geral
-├── pilha/        # Estrutura de Pilha (LIFO) e painel de histórico/Undo
-└── main/         # Classe principal (Main.java) e integração da interface Swing
+├── main/              # Main e definição da página inicial, também terá os códigos de ordenação e busca
+      ├── components/  # Menu Lateral, botões e padronização de telas
+├── image/             # Arquivos PNG para o fundo estilizado
+└── telas/             # Arquivos de Fila (Foco do Dia), Pilha (Histórico) e Lista (Cadastro)
 ```
 
 ## Tecnologias Utilizadas
