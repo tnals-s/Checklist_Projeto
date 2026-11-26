@@ -19,7 +19,7 @@ O código-fonte está organizado dentro de `src/` separando cada módulo por res
 ```text
 src/
 ├── main/              # Main e definição da página inicial, também terá os códigos de ordenação e busca
-      ├── components/  # Menu Lateral, botões e padronização de telas
+      └── components/  # Menu Lateral, botões e padronização de telas
 ├── image/             # Arquivos PNG para o fundo estilizado
 └── telas/             # Arquivos de Fila (Foco do Dia), Pilha (Histórico) e Lista (Cadastro)
 ```
