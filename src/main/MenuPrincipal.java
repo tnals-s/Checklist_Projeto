@@ -2,17 +2,24 @@ package main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
+import java.util.function.Consumer;
+
+import main.components.*;
+import telas.TelaCadastroPanel;
+import telas.TelaFocoPanel;
+import telas.TelaHistoricoPanel;
 
 public class MenuPrincipal extends JFrame {
 
     // gerenciador de telas ("Baralho de Cartas")
-    private CardLayout cardLayout;
-    private JPanel painelPrincipal;
+    private final CardLayout cardLayout;
+    private final JPanel painelPrincipal;
 
     public MenuPrincipal() {
         // configurações básicas da janela (JFrame)
         setTitle("Taskflow - Checklist");
-        setSize(1080, 500);
+        setSize(1080, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -20,23 +27,61 @@ public class MenuPrincipal extends JFrame {
         cardLayout = new CardLayout();
         painelPrincipal = new JPanel(cardLayout);
 
-        // criando 4 telas básicas do fluxo
-        criarTela1Lista();
-        criarTela2Fila();
-        criarTela3Pilha();
-        criarTela4Ordenacao();
+        Consumer<String> navegarPara = destino -> cardLayout.show(painelPrincipal, destino);
+
+        criarTelaInicial(navegarPara);
+
+        painelPrincipal.add(new TelaPrincipalPadrao(navegarPara), "Ordenacao");
+        painelPrincipal.add(new TelaCadastroPanel(navegarPara), "Cadastro");
+        painelPrincipal.add(new TelaFocoPanel(navegarPara), "Foco");
+        painelPrincipal.add(new TelaHistoricoPanel(navegarPara), "Historico");
 
         // adiciona o painel principal na janela
         add(painelPrincipal);
     }
 
+    private void criarTelaInicial(Consumer<String> navegarPara) {
+        JPanel telaInicio = new JPanel() {
+            private final Image imagemFundo;
+
+            {
+                URL url = getClass().getResource("/image/TASKFLOW.png");
+                imagemFundo = (url != null) ? new ImageIcon(url).getImage() : null;
+            }
+
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (imagemFundo != null) {
+                    g.drawImage(imagemFundo, 0, 0, getWidth(), getHeight(), this);
+                }
+            }
+        };
+
+        telaInicio.setLayout(null);
+
+        JButton btnIniciar = new JButton();
+        btnIniciar.setOpaque(false);
+        btnIniciar.setContentAreaFilled(false);
+        btnIniciar.setBorderPainted(false);
+        btnIniciar.setFocusPainted(false);
+        btnIniciar.setBounds(430, 400, 300, 100);
+        btnIniciar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnIniciar.addActionListener(e -> navegarPara.accept("Ordenacao"));
+
+        telaInicio.add(btnIniciar);
+        painelPrincipal.add(telaInicio, "Inicio");
+    }
+
+    private static class TelaPrincipalPadrao extends TelaBaseMenu {
+        public TelaPrincipalPadrao(Consumer<String> aoNavegar) {
+            super("/image/Principal.png", aoNavegar);
+        }
+    }
+
     public static void main(String[] args) {
-        // força o Java 2D a renderizar tudo em escala 1:1 (100%), ignorando a escala do Windows
         System.setProperty("sun.java2d.uiScale", "1.0");
 
-        // roda a interface gráfica na thread correta do Swing (segurança de threads)
-        SwingUtilities.invokeLater(() -> {
-            new MenuPrincipal().setVisible(true);
-        });
+        SwingUtilities.invokeLater(() -> new MenuPrincipal().setVisible(true));
     }
 }
